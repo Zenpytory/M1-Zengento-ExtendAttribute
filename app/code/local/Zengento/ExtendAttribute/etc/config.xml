@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Zengento_ExtendAttribute>
+            <version>0.0.1</version>
+        </Zengento_ExtendAttribute>
+    </modules>
+
+    <global>
+        <blocks>
+            <zengento_extendattribute>
+                <class>Zengento_ExtendAttribute_Block</class>
+            </zengento_extendattribute>
+
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_attribute_grid>Zengento_ExtendAttribute_Block_Adminhtml_Catalog_Product_Attribute_Grid</catalog_product_attribute_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+        <helpers>
+            <zengento_extendattribute>
+                <class>Zengento_ExtendAttribute_Helper</class>
+            </zengento_extendattribute>
+        </helpers>
+
+        <models>
+            <zengento_extendattribute>
+                <class>Zengento_ExtendAttribute_Model</class>
+            </zengento_extendattribute>
+        </models>
+    </global>
+
+    <adminhtml>
+		<layout>
+			<updates>
+				<zengento_extendattribute>
+					<file>zengento/extendattribute.xml</file>
+				</zengento_extendattribute>
+			</updates>
+		</layout>
+
+        <translate>
+            <modules>
+                <Zengento_ExtendAttribute>
+                    <files>
+                        <default>Zengento_ExtendAttribute.csv</default>
+                    </files>
+                </Zengento_ExtendAttribute>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Zengento_ExtendAttribute after="Mage_Adminhtml">Zengento_ExtendAttribute_Adminhtml</Zengento_ExtendAttribute>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

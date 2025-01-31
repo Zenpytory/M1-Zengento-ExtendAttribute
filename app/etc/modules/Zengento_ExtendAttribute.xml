@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Zengento_ExtendAttribute>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Zengento_ExtendAttribute>
+    </modules>
+</config>

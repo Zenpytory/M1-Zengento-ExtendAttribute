@@ -1,0 +1,11 @@
+{
+    "name": "zengento/extendattribute",
+    "type": "magento-module",
+    "authors":[
+        {
+            "name": "Richárd Fülöp",
+            "email": "info@zenpytory.com",
+            "homepage": "https://zenpytory.com"
+        }
+    ]
+}
