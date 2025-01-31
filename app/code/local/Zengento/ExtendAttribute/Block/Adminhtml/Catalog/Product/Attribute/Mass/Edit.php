@@ -18,7 +18,7 @@ class Zengento_ExtendAttribute_Block_Adminhtml_Catalog_Product_Attribute_Mass_Ed
 
     public function getHeaderText()
     {
-        return Mage::helper('zengento_mapper')->__('Mass edit product attributes');
+        return Mage::helper('zengento_extendattribute')->__('Mass edit product attributes');
     }
 
     public function getBackUrl()
