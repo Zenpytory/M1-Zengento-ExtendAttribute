@@ -61,4 +61,36 @@ class Zengento_ExtendAttribute_Adminhtml_Extendattribute_MassController extends 
 
         $this->_redirect('*/catalog_product_attribute/');
     }
+
+    public function deleteAction()
+    {
+        try {
+            $attribute_ids = Mage::helper('zengento_extendattribute')->getAttributeIds();
+
+            foreach ($attribute_ids as $attribute_id) {
+                $attribute = Mage::getModel('catalog/resource_eav_attribute')->load($attribute_id);
+
+                if (!$attribute->getId()) {
+                    Mage::throwException('Unknown attribute id: ' . $attribute_id);
+                }
+
+                $attribute_name = $attribute->getAttributeCode();
+
+                $attribute->delete();
+            }
+
+            $this->_getSession()->addSuccess(
+                $this->__('Total of %d record(s) were deleted', count($attribute_ids))
+            );
+        } catch (Mage_Eav_Model_Entity_Attribute_Exception $e) {
+            $this->_getSession()->addError($attribute_name . ': ' . $e->getMessage());
+        } catch (Mage_Core_Exception $e) {
+            $this->_getSession()->addError($e->getMessage());
+        } catch (Throwable $e) {
+            Mage::logException($e);
+            $this->_getSession()->addError($this->__('An error occurred while deleting the attribute(s).'));
+        }
+
+        $this->_redirect('*/catalog_product_attribute/');
+    }
 }
